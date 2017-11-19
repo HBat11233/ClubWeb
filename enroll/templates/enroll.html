@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>MSC@CQU Sign up online</title>
+</head>
+
+<body>
+    <h1>Please input your information</h1>
+    </br>
+    <form action="/enroll/" , method="post"> 
+        {% csrf_token %}
+        {{ form }}
+    </br>
+        <input type="submit" value="提交">
+    </form>
+</body>
+

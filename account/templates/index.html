@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <h1>Hello {{ user }}</h1>
+    <p><a href='logout/'>logout</a></p>
+    <ul>
+        <li>News</li>
+        {{news}}
+        <li>Avaiable courses</li>
+        {{course_form}}
+        <li>Deadline</li>
+        {{deadline}}
+
+    </ul>
+    <p>{{time}}</p>
+</body>
