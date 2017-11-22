@@ -1,7 +1,7 @@
 from django import forms
-from .models import enrollment
+from .models import Enrollment
 
-class enrollmentForm(forms.ModelForm):
+class EnrollmentForm(forms.ModelForm):
     class Meta:
-        model=enrollment
+        model=Enrollment
         fields = ['enrollCode','enrollName','enrollGender','enrollCollege','enrollEmail','enrollIntro']

@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 
-class enrollment(models.Model):
+class Enrollment(models.Model):
     experience_choice = [
         (0, 'Freshman to programming'),
         (1, 'Some experiences in one or more languages'),
