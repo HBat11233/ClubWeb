@@ -4,23 +4,23 @@ from django import forms
 
 class NewsForm(forms.ModelForm):
     class Meta:
-        name = News
+        model = News
         fields = "__all__"
 
 
 class TaskForm(forms.ModelForm):
     class Meta:
-        name = Task
-        fields = ['Task', 'deadline']
+        model = Task
+        fields = ['taskName','taskContent', 'taskDeadline']
 
 
 class ScheduleForm(forms.ModelForm):
     class Meta:
-        name = Schedule
+        model = Schedule
         fields = '__all__'
 
 
 class CourseForm(forms.ModelForm):
     class Meta:
-        name = Course
-        fields = ['content', 'time_start', 'time_need', 'place']
+        model = Course
+        fields = ['courseName','courseContent', 'courseStart', 'courseTime', 'coursePlace']

@@ -1,0 +1,15 @@
+[0;31mSignature:[0m [0mtimesince[0m[0;34m.[0m[0mtimesince[0m[0;34m([0m[0md[0m[0;34m,[0m [0mnow[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m [0mreversed[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0m
+[0;31mDocstring:[0m
+Takes two datetime objects and returns the time between d and now
+as a nicely formatted string, e.g. "10 minutes".  If d occurs after now,
+then "0 minutes" is returned.
+
+Units used are years, months, weeks, days, hours, and minutes.
+Seconds and microseconds are ignored.  Up to two adjacent units will be
+displayed.  For example, "2 weeks, 3 days" and "1 year, 3 months" are
+possible outputs, but "2 weeks, 3 hours" and "1 year, 5 days" are not.
+
+Adapted from
+http://web.archive.org/web/20060617175230/http://blog.natbat.co.uk/archive/2003/Jun/14/time_since
+[0;31mFile:[0m      ~/anaconda3/lib/python3.6/site-packages/django/utils/timesince.py
+[0;31mType:[0m      function

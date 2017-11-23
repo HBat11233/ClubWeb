@@ -10,11 +10,31 @@
     <p><a href='logout/'>logout</a></p>
     <ul>
         <li>News</li>
-        {{news.as_table}}
+        {%if newsList%}
+            {%for newsForm in newsList%}
+                {{newsForm.as_table}}
+            {% endfor %}
+        {%else%}
+            <p>No recent news</p>
+        {%endif%}
+
         <li>Avaiable courses</li>
-        {{course_form.as_table}}
+        {%if courseList%}
+            {%for courseForm in courseList%}
+                {{courseForm.as_table}}
+            {% endfor %}
+        {%else%}
+            <p>No avaiable course now</p>
+        {%endif%}
+
         <li>Deadline</li>
-        {{deadline.as_table}}
+        {%if taskList%}
+            {%for taskForm in taskList%}
+                <li>{{taskForm.as_table}}</li>
+            {% endfor %}
+        {%else%}
+            <p>Enjoy you time! You are Free!</p>
+        {%endif%}
 
     </ul>
     <p>{{time}}</p>
