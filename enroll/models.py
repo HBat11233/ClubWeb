@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 
@@ -18,16 +18,16 @@ class Enrollment(models.Model):
     enrollCode = models.CharField(
         max_length=10, primary_key=True, unique=True)
     enrollName = models.CharField(max_length=20)
-    enrollGender = models.CharField(max_length=1, choices=gender_choice, default='M')
+    enrollGender = models.CharField(
+        max_length=1, choices=gender_choice, default='M')
     enrollCollege = models.CharField(max_length=30)
     enrollEmail = models.EmailField(max_length=100)
     enrollIntro = models.IntegerField(choices=experience_choice, default=0)
+    enrollUser = models.OneToOneField(User, null=True)
     interviewScoreOne = models.IntegerField(default=0, null=True)
     interviewScoreTwo = models.IntegerField(default=0, null=True)
     examScore = models.IntegerField(default=0, null=True)
     isPassed = models.BooleanField(default=False)
-    
-
 
     def __str__(self):
         return "{0}: {1}".format(self.enrollCode, self.enrollName)

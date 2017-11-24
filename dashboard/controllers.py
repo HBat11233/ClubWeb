@@ -17,6 +17,7 @@ def find_valid_task(user):
     if valid_task:
         return [TaskForm(instance=task) for task in valid_task]
 
+
 def find_valid_course(user):
     now_time = datetime.datetime.now()
     valid_course = user.course_set.filter(courseStart__lt=now_time)

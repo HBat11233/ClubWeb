@@ -6,13 +6,14 @@
 </head>
 
 <body>
-    <h1>Hello {{ user }}</h1>
+    {%extends "base_generic.html"%}
+    <h3>Hello {{ user }}</h3>
     <p><a href='logout/'>logout</a></p>
     <ul>
-        <li>News</li>
+        <li><b>News</b></li>
         {%if newsList%}
             {%for newsForm in newsList%}
-                {{newsForm.as_table}}
+                <table>{{newsForm.as_table}}</table>
             {% endfor %}
         {%else%}
             <p>No recent news</p>
@@ -21,7 +22,7 @@
         <li>Avaiable courses</li>
         {%if courseList%}
             {%for courseForm in courseList%}
-                {{courseForm.as_table}}
+                <p>{{courseForm.as_p}}</p>
             {% endfor %}
         {%else%}
             <p>No avaiable course now</p>
@@ -30,7 +31,7 @@
         <li>Deadline</li>
         {%if taskList%}
             {%for taskForm in taskList%}
-                <li>{{taskForm.as_table}}</li>
+                <table>{{taskForm.as_table}}</table>
             {% endfor %}
         {%else%}
             <p>Enjoy you time! You are Free!</p>
