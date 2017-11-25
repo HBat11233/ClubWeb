@@ -12,8 +12,8 @@
     <ul>
         <li><b>News</b></li>
         {%if newsList%}
-            {%for newsForm in newsList%}
-                <table>{{newsForm.as_table}}</table>
+            {%for news in newsList%}
+                <a href="">{{}}</table>
             {% endfor %}
         {%else%}
             <p>No recent news</p>

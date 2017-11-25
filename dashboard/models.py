@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime
 
+
 class News(models.Model):
     '''
     年轻人不要总想着大新闻
@@ -31,7 +32,7 @@ class Course(models.Model):
     '''
     course of club, one manager(teacher), many students
     '''
-    courseName= models.CharField(max_length=50)
+    courseName = models.CharField(max_length=50)
     courseContent = models.TextField(max_length=500)
     courseStart = models.DateTimeField()
     courseTime = models.CharField(max_length=20)
@@ -46,9 +47,9 @@ class Schedule(models.Model):
     '''
     todo list for managers
     '''
-    scheduleName =models.CharField(max_length=50)
+    scheduleName = models.CharField(max_length=50)
     scheduleContent = models.TextField(max_length=1000)
     scheduleDeadline = models.DateTimeField()
 
     def __str__(self):
-        return self.scheduleName 
+        return self.scheduleName

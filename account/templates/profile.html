@@ -1,2 +1,27 @@
-{%extends base_generic.html%}
+<!DOCTYPE html>
 
+<head>
+    <meta charset="utf-8">
+    <title>Profile</title>
+</head>
+
+<body>
+    <h1>Profile</h1>
+    <h3>Hello {{ user.get_username }}</h3>
+    {%extends base_generic.html%}
+    {%if enrollment%}
+    <p><b>Your information of enrollment:</b></p>
+    <ul>
+        <li>Student No:{% enrollment.enrollCode %}</li>
+        <li>Name: {% enrollment.enrollName %}</li>
+        <li>Gender: {% enrollment.enrollGender %}</li>
+        <li>Email: {% enrollment.enrollEmail %}</li>
+        <li>College: {% enrollment.enrollCollege %}</li>
+    </ul>
+    <a href="/account/change_profile/">Change your profile.</a>
+    {%else%}
+    <p><b>We can't find your information.</b></p>
+</br>
+    <a href="/enroll/"><b>Join us now!</b></a>
+    {%endif%}
+</body>

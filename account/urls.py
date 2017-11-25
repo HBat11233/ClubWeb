@@ -9,5 +9,6 @@ urlpatterns = [
     url(r'^login/$', LoginView.as_view(template_name="login.html",
                                        extra_context={"next": "/dashboard"})),
     url(r'^logout/$', LogoutView.as_view(template_name="logout.html")),
-    url(r'^logout/$', PasswordChangeView.as_view())
+    url(r'^password_reset/$', PasswordChangeView.as_view())
+    #url(r,login_required(views.change_profile.as_view()))
 ]
