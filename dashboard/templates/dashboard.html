@@ -13,7 +13,7 @@
         <li><b>News</b></li>
         {%if newsList%}
             {%for news in newsList%}
-                <a href="">{{}}</table>
+                <a href="course">{{news.newsTitle}}</a>
             {% endfor %}
         {%else%}
             <p>No recent news</p>
