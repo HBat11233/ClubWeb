@@ -6,37 +6,44 @@
 </head>
 
 <body>
-    {%extends "base_generic.html"%}
-    <h3>Hello {{ user }}</h3>
-    <p><a href='logout/'>logout</a></p>
+    <h1>Dashboard</h1>
+    <h4>Hello {{ user }}</h4>
+
+    <h3>News</h3>
+    {%if newsList%} {%for news in newsList%}
     <ul>
-        <li><b>News</b></li>
-        {%if newsList%}
-            {%for news in newsList%}
-                <a href="course">{{news.newsTitle}}</a>
-            {% endfor %}
-        {%else%}
-            <p>No recent news</p>
-        {%endif%}
-
-        <li>Avaiable courses</li>
-        {%if courseList%}
-            {%for courseForm in courseList%}
-                <p>{{courseForm.as_p}}</p>
-            {% endfor %}
-        {%else%}
-            <p>No avaiable course now</p>
-        {%endif%}
-
-        <li>Deadline</li>
-        {%if taskList%}
-            {%for taskForm in taskList%}
-                <table>{{taskForm.as_table}}</table>
-            {% endfor %}
-        {%else%}
-            <p>Enjoy you time! You are Free!</p>
-        {%endif%}
-
+        <li>
+            <strong>{{news.newsTitle}}</strong>
+        </li>
+        <p>{{news.newsContent}}</p>
     </ul>
-    <p>{{time}}</p>
+    {% endfor %} {%else%}
+    <p>No recent news</p>
+    {%endif%}
+
+
+    <h3>Avaiable courses</h3>
+    {%if courseList%} {%for course in courseList%}
+    <p>{{courseList|length}} avaiable</p>
+    <ul>
+        <li>
+            <a href={{course.get_absolute_url}}>{{course.courseName}}</a>
+        </li>
+    </ul>
+    {% endfor %} {%else%}
+    <p>No avaiable course now</p>
+    {%endif%}
+
+<h3>Deadline</h3>
+    {%if taskList%} 
+    <p>{{taskList|length}} to do</p>
+    {%for task in taskList%}
+        </ul>
+            <li>
+            <a href={{task.get_absolute_url}}>{{task.taskName}}</a>
+            </li>
+        </ul>
+    {% endfor %} {%else%}
+    <p>Enjoy you time! You are Free!</p>
+    {%endif%} {%include "base.html"%}
 </body>

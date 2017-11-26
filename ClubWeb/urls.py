@@ -20,6 +20,7 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
+    url(r'',include('home.urls')),
     url(r'^enroll/',include('enroll.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^exam/',include('exam.urls')),

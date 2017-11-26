@@ -4,42 +4,41 @@ from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.views.generic import DetailView
-from django.utils import timezone
+from datetime import datetime, timedelta
 from .models import *
 # Create your views here.
-
 
 @login_required(login_url="/accounts/login")
 def dashboard(request):
 
     def find_latest_news(valid_days=7):
-        valid_date = datetime.datetime.now().date() - datetime.timedelta(days=valid_days)
+        valid_date = datetime.now().date() - timedelta(days=valid_days)
         latest_news = News.objects.filter(newsDate__gt=valid_date)
         if latest_news:
             return latest_news
 
     def find_valid_task(user):
-        now_time = datetime.datetime.now()
+        now_time = datetime.now()
         valid_task = user.task_set.filter(taskDeadline__lt=now_time)
         if valid_task:
             return valid_task
 
     def find_valid_course(user):
-        now_time = datetime.datetime.now()
+        now_time = datetime.now()
         valid_course = user.course_set.filter(courseStart__lt=now_time)
         if valid_course:
             return valid_course
 
     user = request.user
     newsList = find_latest_news()
-    courseList = controllers.find_valid_course(user)
-    taskList = controllers.find_valid_task(user)
+    courseList = find_valid_course(user)
+    taskList = find_valid_task(user)
 
     context = {
         "user": user.get_username(),
-        "time": timezone.now(),
+        "time": datetime.now(),
         "newsList": newsList,
-        "courseList": courseList,
+        "courseList": courseList, 
         "taskList": taskList,
     }
 

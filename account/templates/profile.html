@@ -8,20 +8,31 @@
 <body>
     <h1>Profile</h1>
     <h3>Hello {{ user.get_username }}</h3>
-    {%extends base_generic.html%}
-    {%if enrollment%}
-    <p><b>Your information of enrollment:</b></p>
+    {%if user.enrollment%}
+    <p>
+        <b>Your information of enrollment:</b>
+    </p>
     <ul>
-        <li>Student No:{% enrollment.enrollCode %}</li>
-        <li>Name: {% enrollment.enrollName %}</li>
-        <li>Gender: {% enrollment.enrollGender %}</li>
-        <li>Email: {% enrollment.enrollEmail %}</li>
-        <li>College: {% enrollment.enrollCollege %}</li>
+        <li>Student No:{{ user.enrollment.enrollCode }}</li>
+        <li>Name: {{ user.enrollment.enrollName }}</li>
+        <li>Gender: {{ user.enrollment.enrollGender}}</li>
+        <li>Email: {{ user.enrollment.enrollEmail }}</li>
+        <li>College: {{ user.enrollment.enrollCollege }}</li>
     </ul>
-    <a href="/account/change_profile/">Change your profile.</a>
-    {%else%}
-    <p><b>We can't find your information.</b></p>
+    {% comment %}
+    <a href="/account/change_profile/">Change your profile.</a> {% endcomment %} {%else%}
+    <p>
+        <b>We can't find your information.</b>
+    </p>
+    </br>
+    <a href="/enroll/">
+        <b>Join us now!</b>
+    </a>
+    {% endif %}
+<p>You have enrolled successfully!</p>
+
+<h3><a href="/dashboard/">Dashboard</a></h3>
+<a href="password_reset/">Change your password</a>
 </br>
-    <a href="/enroll/"><b>Join us now!</b></a>
-    {%endif%}
+<a href="logout/">Logout</a>
 </body>

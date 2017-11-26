@@ -1,9 +1,8 @@
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.models import User
 from django.template.context_processors import csrf
 from django.views import View
-from django.views.generic.edit import FormView
-from django.contrib.auth.models import User
 from .forms import EnrollmentForm
 
 
@@ -15,9 +14,12 @@ class register(View):
         form = EnrollmentForm(request.POST)
         if form.is_valid():
             enrollInfo = form.save()
-            user = User.objects.create_user(
-                username=enrollInfo.enrollCode, password=None)
-            user.save()
+            if request.user.is_authenticated:
+                user = request.user
+            else:
+                user = User.objects.create_user(
+                    username=enrollInfo.enrollEmail, password=enrollInfo.enrollCode)
+                user.save()
             enrollInfo.enrollUser = user
             enrollInfo.save()
             return HttpResponseRedirect('/enroll/thanks/')
@@ -25,20 +27,12 @@ class register(View):
             return HttpResponseRedirect('/enroll/sorry/')
 
     def get(self, request):
+        if request.user.is_authenticated():
+            if request.user.enrollment:
+                return render_to_response("sorry.html",context={'user':request.user})
         context = {"form": EnrollmentForm()}
         context.update(csrf(request))
-        return render(request, 'enroll.html', context)
-
-
-# class register(FormView):
-#     template_name = 'enroll.html'
-#     form_class = EnrollmentForm
-#     success_url = '/thanks/'
-
-#     def form_valid(self, form):
-#         enrollInfo = form.save()
-#         enrollInfo.save()
-#         return HttpResponseRedirect('/enroll/thanks/')
+        return render_to_response('enroll.html', context)
 
 
 def thanks(request):

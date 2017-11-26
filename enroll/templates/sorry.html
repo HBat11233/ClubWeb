@@ -6,9 +6,15 @@
 </head>
 
 <body>
+    {% if user %}
+    <h2>You have enrolled befored.</h2>
+    {%include 'base.html'%}
+    
+    {% else %}
     <h1>We feel sorry but there is some error occur.</h1>
 
     <p>Don't submit duplicate information with other students.</p>
     <a href="/enroll">Back</a>
+    {% endif %}
 </body>
 

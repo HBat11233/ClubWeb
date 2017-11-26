@@ -14,6 +14,9 @@ class News(models.Model):
     def __str__(self):
         return self.newsTitle
 
+    def get_absolute_url(self):
+        return "news/{}".format(self.id)
+
 
 class Task(models.Model):
     '''
@@ -24,9 +27,13 @@ class Task(models.Model):
     taskDeadline = models.DateTimeField()
     taskStudents = models.ManyToManyField(User)
 
+    __visuable=['taskName','taskContent', 'taskDeadline']
+
     def __str__(self):
         return self.taskName
 
+    def get_absolute_url(self):
+        return "task/{}".format(self.id)
 
 class Course(models.Model):
     '''
@@ -39,9 +46,14 @@ class Course(models.Model):
     coursePlace = models.CharField(max_length=50)
     courseStudents = models.ManyToManyField(User)
 
+
+    __visuable=['courseName','courseContent', 'courseStart', 'courseTime', 'coursePlace']
+    
     def __str__(self):
         return self.courseName
 
+    def get_absolute_url(self):
+        return "course/{}".format(self.id)
 
 class Schedule(models.Model):
     '''
@@ -53,3 +65,6 @@ class Schedule(models.Model):
 
     def __str__(self):
         return self.scheduleName
+
+    def get_absolute_url(self):
+        return "schedule/{}".format(self.id)
