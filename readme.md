@@ -1,5 +1,8 @@
 # ClubWeb在线社团运营
 
+### 功能概述
+见Wiki
+
 ### 开发环境需求：
 - Python 3.6 
 - Django
@@ -47,6 +50,3 @@ https://docs.djangoproject.com/en/1.11/topics/auth/default/
 - 自动邮件发送
 - UI界面的优化（目前为纯静态HTML）
 - 自动化测试
-### 功能概述
-见Wiki
-
