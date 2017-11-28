@@ -1,7 +1,7 @@
 # ClubWeb在线社团运营
 
 ### 功能概述
-见Wiki
+见[Wiki](https://github.com/Neuromancer43/ClubWeb/wiki)
 
 ### 开发环境需求：
 - Python 3.6 
