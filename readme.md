@@ -1,15 +1,15 @@
 # ClubWeb在线社团运营
 
-### 功能概述
+## 功能概述
 见[Wiki](https://github.com/Neuromancer43/ClubWeb/wiki)
 
-### 开发环境需求：
+## 开发环境需求：
 - Python 3.6 
 - Django
 如有不便请安装virtualenv
 
 
-### 架构说明：
+## 架构说明：
 基于Django的MVT架构：
 Model-View-Template
 参见：https://docs.djangoproject.com/en/1.11/
@@ -31,14 +31,14 @@ ClubWeb为项目根目录，负责wsgi和应用连接配置
 
 manage.py为Django管理文件。
 
-### 测试-localhost
+## 测试-localhost
 在该文件夹路径下打开cmd或者terminal
 $ python manage.py runserver 运行本地Host进行测试
 具体操作详见Django文档
 https://docs.djangoproject.com/en/1.11/ref/django-admin/
 
-可用登录：</br>
-User</br>
+可用登录</br>
+User:</br>
 用户名：testUser </br>
 密码：test1234
 
@@ -50,7 +50,7 @@ $ python manage.py createsuperuser
 
 https://docs.djangoproject.com/en/1.11/topics/auth/default/
 
-### 待实现：
+## 待实现：
 - 在线测试：模型到template的映射函数
 - 自动邮件发送
 - UI界面的优化（目前为纯静态HTML）
