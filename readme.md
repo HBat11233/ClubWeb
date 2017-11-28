@@ -15,7 +15,8 @@ Model-View-Template
 参见：https://docs.djangoproject.com/en/1.11/
 
 ClubWeb为项目根目录，负责wsgi和应用连接配置
-其余文件夹，如enroll为Django的app，即独立功能模块
+
+其余文件夹，如enroll为Django的App，即独立功能模块
 - enroll 在线报名注册
 - accounts 用户帐户信息管理
 - exam 在线测试
@@ -33,7 +34,9 @@ manage.py为Django管理文件。
 
 ## 测试-localhost
 在该文件夹路径下打开cmd或者terminal
-$ python manage.py runserver 运行本地Host进行测试
+`$ python manage.py runserver `
+运行本地Host进行测试
+
 具体操作详见Django文档
 https://docs.djangoproject.com/en/1.11/ref/django-admin/
 
@@ -45,8 +48,7 @@ User:</br>
 
 Manager：
 
-$ python manage.py createsuperuser
-
+`$ python manage.py createsuperuser`
 可自由创建用户，参见：
 
 https://docs.djangoproject.com/en/1.11/topics/auth/default/
