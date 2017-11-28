@@ -37,13 +37,17 @@ $ python manage.py runserver 运行本地Host进行测试
 具体操作详见Django文档
 https://docs.djangoproject.com/en/1.11/ref/django-admin/
 
-可用登录：
-User
-用户名：testUser 
+可用登录：</br>
+User</br>
+用户名：testUser </br>
 密码：test1234
+
 Manager：
+
 $ python manage.py createsuperuser
+
 可自由创建用户，参见：
+
 https://docs.djangoproject.com/en/1.11/topics/auth/default/
 
 ### 待实现：
