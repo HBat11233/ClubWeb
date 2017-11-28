@@ -34,7 +34,7 @@ manage.py为Django管理文件。
 
 ## 测试-localhost
 在该文件夹路径下打开cmd或者terminal
-`$ python manage.py runserver `
+```$ python manage.py runserver ```
 运行本地Host进行测试
 
 具体操作详见Django文档
@@ -47,8 +47,7 @@ User:</br>
 密码：test1234
 
 Manager：
-
-`$ python manage.py createsuperuser`
+```$ python manage.py createsuperuser```
 可自由创建用户，参见：
 
 https://docs.djangoproject.com/en/1.11/topics/auth/default/
