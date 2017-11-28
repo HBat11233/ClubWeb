@@ -20,6 +20,7 @@ ClubWeb为项目根目录，负责wsgi和应用连接配置
 - accounts 用户帐户信息管理
 - exam 在线测试
 - dashboard 计分板 信息通知界面
+
 每个app模块目录中
 - templates: html模版
 - models.py: 数据模型
